@@ -7,7 +7,7 @@ script:
    - docker build -t rtxverma123/express-blog .
    - docker images
    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-   #- docker push rtxverma123/express-blog
+   - docker push rtxverma123/express-blog
 
 deploy: 
    provider: elasticbeanstalk
