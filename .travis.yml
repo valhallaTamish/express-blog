@@ -1,0 +1,22 @@
+language: node_js
+
+services: 
+   - docker
+
+script: 
+   - docker build -t rtxverma123/express-blog .
+   - docker images
+   - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+   - docker push rtxverma123/express-blog
+
+deploy: 
+   provider: elasticbeanstalk
+   region: ap-south-1
+   app: "myexpress-blog"
+   env: "Myexpressblog-env"
+   bucket_name: "myexpressbucket"
+   bucket_path: "docker"
+   access_key_id: $ACCESS
+   secret_access_key: $SECRET
+   on: 
+    branch: master
