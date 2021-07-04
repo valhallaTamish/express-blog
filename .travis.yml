@@ -14,7 +14,7 @@ deploy:
    region: ap-south-1
    app: "myexpress-blog"
    env: "Myexpressblog-env"
-   bucket_name: "myexpressbucket"
+   bucket_name: "elasticbeanstalk-ap-south-1-488435218657"
    bucket_path: "docker"
    access_key_id: $ACCESS
    secret_access_key: $SECRET
