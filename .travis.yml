@@ -7,16 +7,21 @@ script:
    - docker build -t rtxverma123/express-blog .
    - docker images
    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-   - docker push rtxverma123/express-blog
+#    - docker push rtxverma123/express-blog
 
 deploy: 
-   provider: elasticbeanstalk
-   region: ap-south-1
-   app: "myexpress-blog"
-   env: "Myexpressblog-env"
-   bucket_name: "elasticbeanstalk-ap-south-1-488435218657"
-   bucket_path: "docker"
-   access_key_id: $ACCESS
-   secret_access_key: $SECRET
-   on: 
-    branch: master
+   provider: openshift
+   user: "tamishopenshift"
+   password: "Tamishverma12&" # can be encrypted
+   domain: "https://api.tamishos.h3hk.p1.openshiftapps.com:6443"
+#    provider: elasticbeanstalk
+#    region: ap-south-1
+#    app: "myexpress-blog"
+#    env: "Myexpressblog-env"
+#    bucket_name: "elasticbeanstalk-ap-south-1-488435218657"
+#    bucket_path: "docker"
+#    access_key_id: $ACCESS
+#    secret_access_key: $SECRET
+#    on: 
+#     branch: master
+
